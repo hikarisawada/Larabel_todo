@@ -1,0 +1,15 @@
+set number
+set smartcase
+set noshowmatch
+set noswapfile
+set vb t_vb=
+set novisualbell
+set ruler
+"消すな
+set bs=start,indent
+"消すな
+set history=10000
+set mouse=a
+"補完"
+set showcmd
+set autoindent
