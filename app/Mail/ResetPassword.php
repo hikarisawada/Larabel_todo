@@ -32,6 +32,6 @@ class ResetPassword extends Mailable
     {
         return $this
             ->subject('パスワード再設定')
-            ->view('view.name');
+            ->view('mail.password-reset');
     }
 }

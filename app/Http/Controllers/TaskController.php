@@ -14,11 +14,13 @@ class TaskController extends Controller
 
     public function index(Folder $folder)
     {
+      // if (Auth::user()->id !== $folder->user_id)
+      //   abort(423);
       $folders = Auth::user()->folders()->get();
       // すべてのフォルダを取得する
       $tasks = $folder->tasks()->get();
 
-
+      // dd($tasks);
 
       // 選ばれたフォルダを取得する
       // $current_folder = Folder::find($id);
@@ -44,7 +46,7 @@ class TaskController extends Controller
     public function showCreateForm(Folder $folder)
     {
       return view('tasks/create', [
-        'folder_id' => $folder->$id
+        'folder_id' => $folder->id
       ]);
     }
 
@@ -91,9 +93,10 @@ class TaskController extends Controller
       ]);
     }
 
-//     private function checkRelation(Folder $folder, Task $task)
-// {
-//     if ($folder->id !== $task->folder_id) {
-//         abort(404);
-//     }
+    private function checkRelation(Folder $folder, Task $task)
+{
+    if ($folder->id !== $task->folder_id) {
+        abort(404);
+    }
+}
 }
